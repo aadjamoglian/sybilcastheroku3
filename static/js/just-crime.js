@@ -61,7 +61,7 @@ var myMap = L.map("map", {
 
 streetMap.addTo(myMap)
 
-var osm = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(myMap);
+var osm = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(myMap);
 
 L.Control.geocoder().addTo(myMap);
 
@@ -113,9 +113,9 @@ d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
     d.map(d => {
       datastore.push(d)
 
-      var newMarker = L.marker([d.lat, d.lon], {
-        icon: blackIcon
-      });
+      // var newMarker = L.marker([d.lat, d.lon], {
+      //   icon: blackIcon
+      // });
       var redMarker = L.marker([d.lat, d.lon], {
         icon: redIcon
       });
