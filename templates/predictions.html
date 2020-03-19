@@ -5,19 +5,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
     <title>Home - Crime Trends</title>
-    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="static/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="static/css/smoothproducts.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
     <script src="https://d3js.org/d3.v5.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
+
     <!-- Underscore for groupby -->
-    <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
+    <script type="text/javascript" src= 
+        "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
     </script> 
 </head>
 
@@ -31,11 +35,10 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-home">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-story">Story</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-analysis">Analysis</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#goto-aboutus">About Us</a></li>
-                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="predictions">Model</a></li> -->
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">Story</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Analysis</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="">About Us</a></li> -->
                 </ul>
             </div>
         </div>
@@ -44,23 +47,23 @@
 
 
 <!-- START SECTION: HOME  -->
-<section class="clean-block clean-hero box-shadow" style="background-image: url(../static/img/crime_index.jpg);color: rgba(116, 9, 255, 0.507);height: 500px;" id="goto-home">
+<section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507); height: 100px" id="goto-home">
     <div class="text">
         
-        <h1 class="textshadow" style="font-size: 100px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
+        <h1 class="textshadow" style="font-size: 90px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
         <h5 class="textshadow" style="color: rgba(255, 255, 255, 0.904);">Coded_Predictive_Crime_Trends</h4>
     </div>
 </section>
 
-<section style="padding-bottom:10px;"class="clean-block clean-info light box-shadow"> <!--//style="height: 300px;"-->
-    <div class="container">
+<!-- <section style="padding-bottom:10px;"class="clean-block clean-info light box-shadow"> <!--//style="height: 300px;"-->
+    <!-- <div class="container">
         <div class="block-heading">
             <h5 class="text-info"><strong>GOAL:</strong> Uniting <em>data and research</em> to forecast danger in Earth's greatest cities.</h5>
             <h5 class="text-info"><strong>HOW:</strong> Implementing the latest innovations in <em>Artificial Intelligence</em> to predict crime.</h5>
             <br>
         </div>
-    </div>
-</section>
+    </div> -->
+<!-- </section> -->
 
 <section class="clean-block clean-info dark"  id="goto-story"></section>
 <!-- END SECTION: HOME -->
@@ -68,7 +71,7 @@
 <!-- START SECTION: STORY -->
 <br>
 <div>
-    <section class="clean-block clean-info light">
+    <!-- <section class="clean-block clean-info light">
         <div class="container">
             <div class="block-heading">
                 <br>
@@ -78,39 +81,39 @@
                 <h1 class="text-info">FYI</h1>
                 <h3 class="text-info">Recent studies have shown that temperature and weather can significantly affect crime rates.</h3>
             </div>
-        </div>
-    </section>
+        </div> -->
+    <!-- </section> -->
 
-    <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;static/img/cold.jpg&quot;);color: rgba(9, 75, 255, 0.6);height: 118px;">
+    <!-- <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/cold.jpg&quot;);color: rgba(9, 75, 255, 0.6);height: 118px;">
         <div class="text">
             <h2 class="textshadow">Curious if crime falls when the tempearture gets low?</h2>
         </div>
-    </section>
+    </section> -->
     
-    <section class="clean-block clean-info dark">
+    <!-- <section class="clean-block clean-info dark">
         <div class="container">
             <div class="block-heading">
                 <br><h2 class="text-info">Or...</h2>
             </div>
         </div>
-    </section>
-
-    <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;static/img/hot3.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
+    </section> -->
+<!-- 
+    <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/hot3.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
         <div class="text">
             <h2>Wonder if felony rises when the heat gets high?</h2>
         </div>
-    </section>
+    </section> -->
 
-    <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
-        <div class="container">
+    <!-- <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
+        <!-- <div class="container">
             <div class="block-heading">
                 <h3 class="text-info">SYBILCAST is being developed to answer these questions.</h3>
                 <br>
             </div>
         </div>
-    </section>
+    </section>  -->
     
-    <section class="clean-block clean-info dark"   id="goto-analysis"></section>
+    <!-- <section class="clean-block clean-info dark"   id="goto-analysis"></section> -->
 </div>
 <!-- END SECTION: STORY -->
 
@@ -123,10 +126,10 @@
 
             <div class="container">
                 <div class="block-heading">
-                    <h1 class="text-info">ANALYSIS</h1 class="text-info">
-                    <h2 class="text-info">Seeing is believing. We'll show the data.</h2>
-                    <h2 class="text-info">Select a year.</h2>
-                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    <h1 class="text-info">PREDICTION</h1 class="text-info">
+                    <h2 class="text-info">Seeing is believing. We'll show the predictions.</h2>
+                    <!-- <h2 class="text-info">Select a year.</h2> -->
+                    <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select> -->
                     <br>
                 </div>
             </div>
@@ -138,23 +141,191 @@
             <div class="container">
 
                 <!-- SECTION: ANALYSIS, SUB: TEMPERATURE -->
-                <div style="padding-top:10px" id = "year_top" class="block-heading">
+                <!-- <div style="padding-top:10px" id = "year_top" class="block-heading"> -->
                     <!--We need this h2 and p to display the year-->
-                    <h2 class="text-info"></h2>
-                    <p></p> 
-                    <div style = "padding-top:20px" class = "row justify-content-center">
+                    <!-- <h2 class="text-info"></h2>
+                    <p></p>  -->
+                    <!-- <div style = "padding-top:20px" class = "row justify-content-center">
                         <div id = "high_temp" class='col-lg-6 col-md-6 col-sm-6'></div>
                         <div id = "low_temp" class='col-lg-6 col-md-6 col-sm-6'></div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
                 
                 <!-- SECTION: ANALYSIS, SUB: GRAPHS -->
-                <div class="row justify-content-center">
+                <!-- <div class="row justify-content-center"> -->
                     
+                    <!-- GRAPH 1 -->
+                    <!-- <div id = "horibar" class="col-md-6 col-lg-6 col-sm-6"></div>                    
 
+                    <div class="col-md-6 col-lg-6 col-sm-6"> -->
+                        <!-- GRAPH 2 -->
+                        <!-- <div id = "area-graph" class="col-md-12 col-lg-12 col-sm-12"></div>
+                    </div>
+                </div> -->
+
+                <!-- GRAPH 3
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <div id = "time-graph" class="col-md-12 col-lg-12 col-sm-12"></div>
+                    </div>
+                </div> -->
+
+                <!-- MAP - Map with Markers -->
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- <div id = "map" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div> -->
+                        <h1 style= "color:darkblue ">Debra</h1>
+                        <p>Enter Age : <i>24</i></p>
+                        <p>Enter Sex : <i>F</i></p>
+                        <p>Enter Descent : <i>W</i></p>
+                        <p>Enter Description of Current Location : <i>Street</i></p>
+                        <p>Enter Latitude : <i>34.0928</i></p>
+                        <p>Enter Longitude : <i>-118.3287</i></p>
+                        <p>Enter Current Area Name : <i>Hollywood</i></p>
+                        <p>Enter Season : <i>Summer</i></p>
+                        <p>Enter Day or Night : <i>Day</i></p>
+                        <br>
+                        <h4>Prediction : Vehicle-Related Crime</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Vehicle-Related</strong> Crime!</p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        <div id='container'>
+                        <table border ='1px' style="width:100%">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VEHICLE-RELATED</td>
+                                <td style='padding:8px'>51.02%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>13.84%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>8.66%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>SEXUAL-RELATED</td>
+                                <td style='padding:8px'>6.95%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>6.75%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
                 </div>
 
-                </div> -->
+            <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107)'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- <div id = "map" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div> -->
+                        <h1 style='color:darkblue'>Michael</h1>
+                        <p>Enter Age : <i>37</i></p>
+                        <p>Enter Sex : <i>M</i></p>
+                        <p>Enter Descent : <i>H</i></p>
+                        <p>Enter Description of Current Location : <i>Library</i></p>
+                        <p>Enter Latitude : <i>34.1838</i></p>
+                        <p>Enter Longitude : <i>-118.4463</i></p>
+                        <p>Enter Current Area Name : <i>Hollywood</i></p>
+                        <p>Enter Season : <i>Fall</i></p>
+                        <p>Enter Day or Night : <i>Night</i></p>
+                        <br>
+                        <h4>Prediction : Theft</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Theft!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>40.01%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>18.76%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>16.41%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>TRESPASSING</td>
+                                <td style='padding:8px'>7.53%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>3.46%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107)'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- <div id = "map" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div> -->
+                        <h1 style='color:darkblue'>Michael</h1>
+                        <p>Enter Age : <i>37</i></p>
+                        <p>Enter Sex : <i>M</i></p>
+                        <p>Enter Descent : <i>H</i></p>
+                        <p>Enter Description of Current Location : <i>Library</i></p>
+                        <p>Enter Latitude : <i>34.1838</i></p>
+                        <p>Enter Longitude : <i>-118.4463</i></p>
+                        <p>Enter Current Area Name : <i>Hollywood</i></p>
+                        <p>Enter Season : <i>Fall</i></p>
+                        <p>Enter Day or Night : <i>Night</i></p>
+                        <br>
+                        <h4>Prediction : Theft</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Theft!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>40.01%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>18.76%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>16.41%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>TRESPASSING</td>
+                                <td style='padding:8px'>7.53%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>3.46%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+                <!-- MAP - Map with Heatmap -->
+                <!-- <div class = "row justify-content-center"> -->
+                    <!-- <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12"> -->
+                        <!-- <div id = "heatmap" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div> -->
+                        <!-- <p>Heat Map</p> -->
+                    <!-- </div> -->
+                <!-- </div> -->
 
             </div>
 
@@ -164,10 +335,18 @@
 <!-- END SECTION: ANALYSIS-->
 
 
+            <!-- <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <p>Graph 3 Here</p>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <p>Graph 4 Here</p>
+                </div>
+            </div> -->
+
 
 <!-- START SECTION: ABOUT US -->
-
-    <a class="btn btn-primary" href="/predictions" role="button">Link</a>
+    
     <section class="clean-block about-us">
         <div class="container">
 
@@ -178,7 +357,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/img/avatars/avatar_mi.jpg">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_mi.jpg">
                         <div class="card-body info">
                             <h4 class="card-title">Morgan Ivey</h4>
                             <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
@@ -187,9 +366,9 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/img/avatars/avatar_aa.jpg">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_aa.jpg">
                         <div class="card-body info">
-                            <h4 class="card-title">Arthur Adjamoglian</h4>
+                            <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
                             <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
                     </div>
@@ -199,7 +378,7 @@
             <div class="row justify-content-center">
 
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/img/avatars/avatar_dt.jpg">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_dt.jpg">
 
                         <div class="card-body info">
                             <h4 class="card-title">DeWitt Tsai</h4>
@@ -210,7 +389,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/img/avatars/avatar_ha.jpg">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_ha.jpg">
 
                         <div class="card-body info">
                             <h4 class="card-title">Hakob Antonyan</h4>
@@ -259,12 +438,12 @@
     <script src="assets/js/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="./static/js/app.js"></script>
+    <!-- <script src="./static/js/app.js"></script> -->
 
-    <script type="text/javascript" src="static/js/config.js"></script>
-    <script type="text/javascript" src="static/js/just-crime.js"></script>
-    <script type="text/javascript" src="static/js/heatmap.js"></script>
-    <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
+    <!-- <script type="text/javascript" src="static/js/config.js"></script>
+    <script type="text/javascript" src="static/js/just-crime.js"></script> -->
+    <!-- <script type="text/javascript" src="static/js/heatmap.js"></script> -->
+    <!-- <script type="text/javascript" src="static/js/leaflet-heat.js"></script> -->
 
 </body>
 
