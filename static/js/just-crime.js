@@ -63,7 +63,7 @@ streetMap.addTo(myMap)
 
 var osm = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(myMap);
 
-L.Control.geocoder().addTo(myMap);
+// L.Control.geocoder().addTo(myMap);
 
 var overlays = {
   "2010": layers.Year_2010,
