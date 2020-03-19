@@ -108,7 +108,7 @@ var blueIcon = new L.Icon({
 datastore = []
 function createMap(hotDates,coldDates) {
 // Call d3.json() with the JSON file data.json (original repo: server (http://127.0.0.1:5000/data) from app.py)
-d3.json("data.json").then(
+d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
   function(d){
     d.map(d => {
       datastore.push(d)
