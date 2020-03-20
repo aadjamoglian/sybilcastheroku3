@@ -126,10 +126,10 @@ d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
       if (d.date_occ === hotDates.filter(x => x.includes("2010"))[0]) {
         // var hotDate = getDate("2010")
         // var hotDate = hotDates.filter(x => x.includes("2010"))[0]
-        // console.log(hotDate)
-        // console.log(hotDates)
-        // console.log(hotDates.filter(x=> x.includes("2010")))
-        // console.log("Year 2010")
+        console.log(hotDate)
+        console.log(hotDates)
+        console.log(hotDates.filter(x=> x.includes("2010")))
+        console.log("Year 2010")
         redMarker.addTo(layers.Year_2010);
         redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
       }
