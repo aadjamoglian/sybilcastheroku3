@@ -22,23 +22,7 @@
     <!-- Underscore for groupby -->
     <script type="text/javascript" src= 
         "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
-    </script>
-    
-    <!-- FOR SEARCHABLE DROPDOWN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <!-- END OF FOR SEARCHABLE DROPDOWN -->
-
-    <style>
-        .select2-container .select2-selection--single{
-        height:34px !important;
-        width:100%
-    }
-    .select2-container--default .select2-selection--single{
-        border: 1px solid #ccc !important; 
-        border-radius: 0px !important; 
-    }
-    </style>
+    </script> 
 </head>
 
 <!-- OPTIONAL FEATURE: Button to assist user back to the top of the page. -->
@@ -63,7 +47,7 @@
 
 
 <!-- START SECTION: HOME  -->
-<section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507); height: 200px" id="goto-home">
+<section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507); height: 100px" id="goto-home">
     <div class="text">
         
         <h1 class="textshadow" style="font-size: 90px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
@@ -71,6 +55,15 @@
     </div>
 </section>
 
+<!-- <section style="padding-bottom:10px;"class="clean-block clean-info light box-shadow"> <!--//style="height: 300px;"-->
+    <!-- <div class="container">
+        <div class="block-heading">
+            <h5 class="text-info"><strong>GOAL:</strong> Uniting <em>data and research</em> to forecast danger in Earth's greatest cities.</h5>
+            <h5 class="text-info"><strong>HOW:</strong> Implementing the latest innovations in <em>Artificial Intelligence</em> to predict crime.</h5>
+            <br>
+        </div>
+    </div> -->
+<!-- </section> -->
 
 <section class="clean-block clean-info dark"  id="goto-story"></section>
 <!-- END SECTION: HOME -->
@@ -78,8 +71,49 @@
 <!-- START SECTION: STORY -->
 <br>
 <div>
+    <!-- <section class="clean-block clean-info light">
+        <div class="container">
+            <div class="block-heading">
+                <br>
+                <br>
+                <h1 class="text-info">SCENARIO</h1>
+                <h3 class="text-info">Let's say you commute the same path to work. <br> As time goes on, you cycle through the seasons and have a strange feeling that more crimes have been happening on specific times of the year.</h3>
+                <h1 class="text-info">FYI</h1>
+                <h3 class="text-info">Recent studies have shown that temperature and weather can significantly affect crime rates.</h3>
+            </div>
+        </div> -->
+    <!-- </section> -->
+
+    <!-- <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/cold.jpg&quot;);color: rgba(9, 75, 255, 0.6);height: 118px;">
+        <div class="text">
+            <h2 class="textshadow">Curious if crime falls when the tempearture gets low?</h2>
+        </div>
+    </section> -->
     
+    <!-- <section class="clean-block clean-info dark">
+        <div class="container">
+            <div class="block-heading">
+                <br><h2 class="text-info">Or...</h2>
+            </div>
+        </div>
+    </section> -->
+<!-- 
+    <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/hot3.jpg&quot;);color: rgba(126, 19, 19, 0.767);height: 118px;">
+        <div class="text">
+            <h2>Wonder if felony rises when the heat gets high?</h2>
+        </div>
+    </section> -->
+
+    <!-- <section style="padding-bottom:10px;"class="clean-block clean-info light"> <!--//style="height: 300px;"-->
+        <!-- <div class="container">
+            <div class="block-heading">
+                <h3 class="text-info">SYBILCAST is being developed to answer these questions.</h3>
+                <br>
+            </div>
+        </div>
+    </section>  -->
     
+    <!-- <section class="clean-block clean-info dark"   id="goto-analysis"></section> -->
 </div>
 <!-- END SECTION: STORY -->
 
@@ -103,157 +137,8 @@
         </section>
 
         <section class="clean-block clean-info dark">
-            <div style='padding-top:30px' class='container'>
-                <!-- Enter your age -->
-                <div class="form-group">
-                    <label for="age"><h4>Enter your age : </h4></label>
-                    <input type="text" class="form-control" id="age">
-                </div> <!-- Ends div form-group -->
-        
-                <!-- Select your sex -->
-                <!-- <div class="container"> -->
-                    <div style='margin-top:20px' class="row">
-                        <form class="col-md-12 col-lg-12 col-sm-12">
-                            <label><h4>Select your sex : </h4></label>
-                            <select style='width:100%' class="form-control select2">
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>X (Unknown)</option>
-                            </select>
-                        </form>
-                     </div>
-                <!-- </div> -->
-                <script>
-                    $('.select2').select2();
-                </script>
-                
-        
-                <!-- Select your descent -->
-                <!-- <div class="container"> -->
-                    <div style='margin-top:20px' class="row">
-                        <form class="col-md-12 col-lg-12 col-sm-12">
-                            <label><h4>Select your descent : </h4></label>
-                            <select style='width:100%' class="form-control select2">
-                                <option>W - White</option>
-                                <option>B - Black</option>
-                                <option>C - Chinese</option>
-                                <option>H - Hispanic/Latin/Mexican</option>
-                                <option>K - Korean</option>
-                                <option>I - American Indian/Alaskan Native</option>
-                                <option>J - Japanese</option>
-                                <option>F - Filipino</option>
-                                <option>P - Pacific Islander</option>
-                                <option>V - Vietnamese</option>
-                                <option>U - Hawaiian</option>
-                                <option>G - Guamanian</option>
-                                <option>D - Cambodian</option>
-                                <option>S - Samoan</option>
-                                <option>Z - Asian Indian</option>
-                                <option>L - Laotian</option>
-                                <option>A - Other Asian</option>
-                                <option>O - Other</option>
-                                <option>X - Unknown</option>
-                            </select>
-                        </form>
-                     </div>
-                <!-- </div> -->
-                <script>
-                    $('.select2').select2();
-                </script>
-                
-        
-                <!-- Select the description of your current location (need search bar with dropdown) -->
-                <!-- <div class="container"> -->
-                    <div style='margin-top:20px' class="row">
-                        <form class="col-md-12 col-lg-12 col-sm-12">
-                            <label><h4>Select the description of your current location : </h4></label>
-                            <select style='width:100%' class="form-control select2" id='js-search'>
-                               <!-- <option>Select</option> 
-                               <option>Car</option> 
-                               <option>Bike</option> 
-                               <option>Scooter</option> 
-                               <option>Cycle</option> 
-                               <option>Horse</option>  -->
-                            </select>
-                        </form>
-                     </div>
-                <!-- </div> -->
-                <script>
-                    $('.select2').select2();
-                </script>
-                
-                <!-- (Enter your address?? Need api to call that) -->
-                <!-- Enter your latitude -->
-                <div style='margin-top:20px' class="form-group">
-                    <label for="lat"><h4>Enter your latitude : </h4></label>
-                    <input type="text" class="form-control" id="lat">
-                </div> <!-- Ends div form-group -->
-        
-                <!-- Enter your longitude -->
-                <div style='margin-top:20px' class="form-group">
-                    <label for="lon"><h4>Enter your longitude : </h4></label>
-                    <input type="text" class="form-control" id="lon">
-                </div> <!-- Ends div form-group -->
-        
-                <!-- Select the name of your area -->
-                <!-- <div class="container"> -->
-                    <div style='margin-top:20px' class="row">
-                        <form class="col-md-12 col-lg-12 col-sm-12">
-                            <label><h4>Select the name of your area : </h4></label>
-                            <select style='width:100%' class="form-control select2">
-                                <option>Newton</option>
-                                <option>Hollywood</option>
-                                <option>Central</option>
-                                <option>Southwest</option>
-                                <option>Rampart</option>
-                                <option>Olympic</option>
-                                <option>Northeast</option>
-                                <option>77th Street</option>
-                                <option>Hollenbeck</option>
-                                <option>Harbor</option>
-                                <option>Pacific</option>
-                                <option>Southeast</option>
-                                <option>Wilshire</option>
-                                <option>West LA</option>
-                                <option>Van Nuys</option>
-                                <option>West Valley</option>
-                                <option>N Hollywood</option>
-                                <option>Mission</option>
-                                <option>Topanga</option>
-                                <option>Devonshire</option>
-                                <option>Foothill</option>
-                            </select>
-                        </form>
-                     </div>
-                <!-- </div> -->
-                <script>
-                    $('.select2').select2();
-                </script>
-        
-                <!-- Select day or night -->
-                <!-- <div class="container"> -->
-                    <div style='margin-top:20px' class="row">
-                        <form class="col-md-12 col-lg-12 col-sm-12">
-                            <label><h4>Select day or night : </h4></label>
-                            <select style='width:100%' class="form-control select2">
-                                <option>Day</option>
-                                <option>Night</option>
-                            </select>
-                        </form>
-                     </div>
-                <!-- </div> -->
-                <script>
-                    $('.select2').select2();
-                </script>
-        
-        
-            </div>
-
 
             <div class="container">
-                <hr style='padding-top:50px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
-                <hr style='padding-top:1px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
-
 
                 <!-- LEGEND - Show accepted parameters -->
                 <div class = "row justify-content-center">
@@ -546,6 +431,7 @@
                     <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_mi.jpg">
                         <div class="card-body info">
                             <h4 class="card-title">Morgan Ivey</h4>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
                     </div>
                 </div>
@@ -554,6 +440,7 @@
                     <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_aa.jpg">
                         <div class="card-body info">
                             <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
                     </div>
                 </div>
@@ -566,6 +453,7 @@
 
                         <div class="card-body info">
                             <h4 class="card-title">DeWitt Tsai</h4>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
 
                     </div>
@@ -576,6 +464,7 @@
 
                         <div class="card-body info">
                             <h4 class="card-title">Hakob Antonyan</h4>
+                            <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                         </div>
 
                     </div>
@@ -602,6 +491,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div class="footer-copyright">
+            <p class = "text-align">© 2018 Copyright Text</p>
+        </div> -->
+
     </footer>
 <!--END SECTION: FOOTER-->
 
@@ -621,195 +515,7 @@
     <script type="text/javascript" src="static/js/just-crime.js"></script> -->
     <!-- <script type="text/javascript" src="static/js/heatmap.js"></script> -->
     <!-- <script type="text/javascript" src="static/js/leaflet-heat.js"></script> -->
-    <script>
-        var data = ['SINGLE FAMILY DWELLING', 'STREET', 'OTHER PREMISE', 'PARKING LOT',
-    'SIDEWALK', 'MULTI-UNIT DWELLING (APARTMENT, DUPLEX, ETC)',
-    'RESTAURANT/FAST FOOD', 'BAR/COCKTAIL/NIGHTCLUB', 'HOTEL',
-    'OTHER BUSINESS', 'OTHER STORE',
-    'GOVERNMENT FACILITY (FEDERAL,STATE, COUNTY & CITY)',
-    'VEHICLE, PASSENGER/TRUCK',
-    'MUNICIPAL BUS LINE INCLUDES LADOT/DASH', 'PAWN SHOP',
-    'OTHER RESIDENCE', 'JEWELRY STORE', 'SPECIALTY SCHOOL/OTHER',
-    'CHURCH/CHAPEL (CHANGED 03-03 FROM CHURCH/TEMPLE)', 'ALLEY',
-    'OFFICE BUILDING/OFFICE', 'CONSTRUCTION SITE',
-    'PARKING UNDERGROUND/BUILDING', 'HOSPITAL', 'DRIVEWAY', 'BUS STOP',
-    'NIGHT CLUB (OPEN EVENINGS ONLY)', 'DRUG STORE', 'LIQUOR STORE',
-    'DEPARTMENT STORE', 'MARKET',
-    'TRAIN DEPOT/TERMINAL, OTHER THAN MTA', 'PUBLIC RESTROOM/OUTSIDE*',
-    'LIBRARY', 'SPORTS ARENA', 'ELEVATOR', 'CLOTHING STORE',
-    'HIGH SCHOOL', 'BUS DEPOT/TERMINAL, OTHER THAN MTA',
-    'POLICE FACILITY', 'OTHER/OUTSIDE', 'PARK/PLAYGROUND',
-    'GAS STATION', 'FREEWAY', 'THEATRE/MOVIE', 'BEAUTY/BARBER SHOP',
-    'MEDICAL/DENTAL OFFICES',
-    'TRAIN, OTHER THAN MTA (ALSO QUERY 809/810/811)',
-    'SHOPPING MALL (COMMON AREA)', 'AUTOMATED TELLER MACHINE (ATM)',
-    'HEALTH SPA/GYM', 'STAPLES CENTER *', 'MOTEL', 'GARAGE/CARPORT',
-    'CONDOMINIUM/TOWNHOUSE', 'PATIO*',
-    'PUBLIC RESTROOM(INDOORS-INSIDE)', 'WAREHOUSE',
-    'BUS-CHARTER/PRIVATE', 'CONVENTION CENTER', 'FACTORY', 'BANK',
-    'CREDIT UNION', 'PUBLIC STORAGE', 'YARD (RESIDENTIAL/BUSINESS)',
-    'TRADE SCHOOL (MEDICAL-TECHNICAL-BUSINESS)*', 'CLEANER/LAUNDROMAT',
-    'TERMINAL, OTHER THAN MTA', 'AMTRAK TRAIN',
-    'BUS STOP/LAYOVER (ALSO QUERY 124)', 'AUTO SALES LOT', 'MINI-MART',
-    'VACANT LOT', 'SWAP MEET', 'STAIRWELL*',
-    'TRANSPORTATION FACILITY (AIRPORT)', 'ELEMENTARY SCHOOL',
-    'MTA BUS', 'MANUFACTURING COMPANY', 'BEAUTY SUPPLY STORE',
-    'PORCH, RESIDENTIAL', 'BAR/SPORTS BAR (OPEN DAY & NIGHT)',
-    'STORAGE SHED', 'FINANCE COMPANY',
-    'COLLEGE/JUNIOR COLLEGE/UNIVERSITY', 'TRUCK, COMMERICAL',
-    'ENTERTAINMENT/COMEDY CLUB (OTHER)', 'TAXI', 'PAY PHONE',
-    'NURSING/CONVALESCENT/RETIREMENT HOME', 'HIGH-RISE BUILDING',
-    'REDLINE ENTRANCE/EXIT', 'SKATEBOARD FACILITY/SKATEBOARD PARK*',
-    'CHECK CASHING*', 'JUNIOR HIGH SCHOOL',
-    'FOSTER HOME BOYS OR GIRLS*', 'LAUNDROMAT',
-    'ARCADE,GAME ROOM/VIDEO GAMES (EXAMPLE CHUCKIE CHEESE)*',
-    'VIDEO RENTAL STORE', 'ABANDONED BUILDING ABANDONED HOUSE',
-    'POOL-PUBLIC/OUTDOOR OR INDOOR*',
-    'PHARMACY INSIDE STORE OR SUPERMARKET*', 'GROUP HOME',
-    'HARDWARE/BUILDING SUPPLY', 'FRAT HOUSE/SORORITY/DORMITORY',
-    'AUTO REPAIR SHOP', 'REDLINE SUBWAY PLATFORM',
-    'MEDICAL MARIJUANA FACILITIES/BUSINESSES', 'NAIL SALON',
-    'TV/RADIO/APPLIANCE', 'PRIVATE SCHOOL/PRESCHOOL',
-    'PROJECT/TENEMENT/PUBLIC HOUSING', 'POST OFFICE',
-    'PEDESTRIAN OVERCROSSING', 'DAY CARE/ADULTS*',
-    'GUN/SPORTING GOODS', 'BUS, SCHOOL, CHURCH',
-    "SEX ORIENTED/BOOK STORE/STRIP CLUB/GENTLEMAN'S CLUB",
-    'MEMBERSHIP STORE (COSTCO,SAMS CLUB)*', 'TATTOO PARLOR*',
-    'TOW YARD*', 'COLISEUM', 'AUTO SUPPLY STORE*',
-    'SLIPS/DOCK/MARINA/BOAT', 'OTHER PLACE OF WORSHIP',
-    'REDLINE SUBWAY RAIL CAR (INSIDE TRAIN)',
-    'RETIRED (DUPLICATE) DO NOT USE THIS CODE', 'UNDERPASS/BRIDGE*',
-    'Unknown', 'VISION CARE FACILITY*',
-    "MOBILE HOME/TRAILERS/CONSTRUCTION TRAILERS/RV'S/MOTORHOME",
-    'MTA PROPERTY OR PARKING LOT',
-    'RECORD-CD MUSIC/COMPUTER GAME STORE', 'DRIVE THRU*', 'BALCONY*',
-    'BEACH', 'DAY CARE/CHILDREN*', 'SYNAGOGUE/TEMPLE', 'GOLF COURSE*',
-    'FIRE STATION',
-    'DELIVERY SERVICE (FED EX, UPS, COURIERS,COURIER SERVICE)*',
-    'CEMETARY*', 'MASSAGE PARLOR',
-    'BLUE LINE (ABOVE GROUND SURFACE TRAIN)', 'OIL REFINERY',
-    'CELL PHONE STORE', 'ABORTION CLINIC/ABORTION FACILITY*',
-    'MAIL BOX', 'RIVER BED*',
-    'OPTICAL OFFICE INSIDE STORE OR SUPERMARKET*', 'BOWLING ALLEY*',
-    'SPORTS VENUE, OTHER', 'TOOL SHED*', 'AIRCRAFT', 'DODGER STADIUM',
-    'AMUSEMENT PARK*', 'GARMENT MANUFACTURER',
-    'BANKING INSIDE MARKET-STORE *', 'MASS GATHERING LOCATION',
-    'MOSQUE*', 'GREYHOUND OR INTERSTATE BUS', 'METROLINK TRAIN',
-    'HORSE RACING/SANTA ANITA PARK*', 'SAVINGS & LOAN', 'TOBACCO SHOP',
-    'CHEMICAL STORAGE/MANUFACTURING PLANT', 'EQUIPMENT RENTAL',
-    'DRIVE THRU BANKING (WINDOW)*',
-    'TELECOMMUNICATION FACILITY/LOCATION', 'TRAIN TRACKS',
-    'REDLINE SUBWAY TUNNEL', 'TUNNEL', 'CAR WASH', 'WEBSITE',
-    'OTHER RR TRAIN (UNION PAC, SANTE FE ETC', 'CYBERSPACE',
-    'PET STORE', 'RECYCLING CENTER',
-    'DISCOUNT STORE (99 CENT,DOLLAR,ETC.',
-    "DIY CENTER (LOWE'S,HOME DEPOT,OSH,CONTRACTORS WAREHOUSE)",
-    'NURSERY/FLOWER SHOP', 'COMPUTER SERVICES/REPAIRS/SALES',
-    'ORANGE LINE PARKING LOT', 'OTHER INTERSTATE, CHARTER BUS',
-    'SKATING RINK*', 'ABATEMENT LOCATION', 'DAM/RESERVOIR',
-    'ENERGY PLANT/FACILITY', 'TRASH CAN/TRASH DUMPSTER',
-    'TRAM/STREETCAR(BOXLIKE WAG ON RAILS)*', 'HOSPICE',
-    'CULTURAL SIGNIFICANCE/MONUMENT', 'WATER FACILITY', 'ESCALATOR*',
-    'MISSIONS/SHELTERS', 'CATERING/ICE CREAM TRUCK',
-    'REDLINE (SUBWAY TRAIN)', 'METHADONE CLINIC',
-    'DETENTION/JAIL FACILITY', 'VALET',
-    'GREEN LINE (I-105 FWY LEVEL TRAIN)',
-    "COFFEE SHOP (STARBUCKS, COFFEE BEAN, PEET'S, ETC.)",
-    'HOCKEY RINK/ICE HOCKEY', 'REDLINE SUBWAY MEZZANINE',
-    'APARTMENT/CONDO COMMON LAUNDRY ROOM',
-    'AUTO DEALERSHIP (CHEVY, FORD, BMW, MERCEDES, ETC.)', 'MORTUARY',
-    'ELECTRONICS STORE (IE:RADIO SHACK, ETC.)', 'MUSEUM',
-    'FURNITURE STORE', "SINGLE RESIDENCE OCCUPANCY (SRO'S) LOCATIONS",
-    'VETERINARIAN/ANIMAL HOSPITAL', 'TACTICAL SIGNIFICANCE',
-    'BOOK STORE', 'MTA - GREEN LINE - AVIATION/LAX',
-    'BANK DROP BOX/MONEY DROP-OUTSIDE OF BANK*',
-    'MTA - ORANGE LINE - WOODLEY',
-    'MTA - RED LINE - 7TH AND METRO CENTER',
-    'TRANSITIONAL HOUSING/HALFWAY HOUSE',
-    "VEHICLE STORAGE LOT (CARS, TRUCKS, RV'S, BOATS, TRAILERS, ETC.)",
-    'NUCLEAR FACILITY', 'STUDIO (FILM/PHOTOGRAPHIC/MUSIC)',
-    'DEPT OF DEFENSE FACILITY', 'TRANSIENT ENCAMPMENT',
-    'MTA - RED LINE - UNION STATION', 'THE GROVE',
-    'THE BEVERLY CENTER', 'THE BEVERLY CONNECTION',
-    'MTA - RED LINE - HOLLYWOOD/VINE',
-    'MTA - RED LINE - WESTLAKE/MACARTHUR PARK',
-    'MTA - GREEN LINE - HARBOR FWY', 'SEWAGE FACILITY/PIPE',
-    'MTA - RED LINE - PERSHING SQUARE',
-    'MTA - RED LINE - VERMONT/BEVERLY',
-    'LA UNION STATION (NOT LINE SPECIFIC)',
-    'MTA - RED LINE - VERMONT/SANTA MONICA',
-    'MTA - RED LINE - NORTH HOLLYWOOD', 'MTA - BLUE LINE - WASHINGTON',
-    'MTA - EXPO LINE - PICO', 'MTA - EXPO LINE - EXPO/WESTERN',
-    '7TH AND METRO CENTER (NOT LINE SPECIFIC)',
-    'MTA - BLUE LINE - 7TH AND METRO CENTER',
-    'MTA - RED LINE - VERMONT/SUNSET',
-    'MTA - SILVER LINE - HARBOR GATEWAY TRANSIT CTR',
-    'MTA - EXPO LINE - EXPO/CRENSHAW',
-    'MTA - EXPO LINE - EXPO/VERMONT',
-    'MTA - GOLD LINE - LITTLE TOKYO/ARTS DISTRICT',
-    'MTA - EXPO LINE - FARMDALE', 'MTA - EXPO LINE - EXPO/BUNDY',
-    'MTA - EXPO LINE - 7TH AND METRO CENTER',
-    'MTA - PURPLE LINE - CIVIC CENTER/GRAND PARK',
-    'MTA - GOLD LINE - HIGHLAND PARK',
-    'MTA - PURPLE LINE - WILSHIRE/WESTERN',
-    'MTA - PURPLE LINE - UNION STATION',
-    'MTA - GOLD LINE - UNION STATION',
-    'MTA - RED LINE - HOLLYWOOD/HIGHLAND',
-    'MTA - RED LINE - UNIVERSAL CITY/STUDIO CITY',
-    'MTA - SILVER LINE - UNION STATION',
-    'MTA - GOLD LINE - MARIACHI PLAZA',
-    'MTA - EXPO LINE - EXPO PARK/USC',
-    'MTA - RED LINE - WILSHIRE/VERMONT',
-    'MTA - EXPO LINE - EXPO/LA BREA',
-    'MTA - RED LINE - CIVIC CENTER/GRAND PARK',
-    'MTA - BLUE LINE - PICO', 'MTA - GOLD LINE - CHINATOWN',
-    'MTA - ORANGE LINE - CHATSWORTH',
-    'MTA - EXPO LINE - EXPO/SEPULVEDA',
-    'MTA - EXPO LINE - JEFFERSON/USC', 'MTA - GOLD LINE - SOTO',
-    'MTA - EXPO LINE - LATTC/ORTHO INSTITUTE',
-    'MTA - ORANGE LINE - NORTH HOLLYWOOD',
-    'MTA - ORANGE LINE - SEPULVEDA', 'MTA - GREEN LINE - AVALON',
-    'MTA - BLUE LINE - 103RD/WATTS TOWERS',
-    'MTA - ORANGE LINE - VAN NUYS', 'MTA - GOLD LINE - INDIANA',
-    'MTA - EXPO LINE - WESTWOOD/RANCHO PARK',
-    'MTA - EXPO LINE - LA CIENEGA/JEFFERSON',
-    'MTA - RED LINE - HOLLYWOOD/WESTERN', 'MTA - ORANGE LINE - RESEDA',
-    'MTA - ORANGE LINE - LAUREL CANYON', 'SHORT-TERM VACATION RENTAL',
-    'MTA - ORANGE LINE - VALLEY COLLEGE', 'MTA - ORANGE LINE - CANOGA',
-    'MTA - ORANGE LINE - BALBOA', 'MTA - GOLD LINE - PICO/ALISO',
-    'MTA - BLUE LINE - VERNON', 'MTA - EXPO LINE - PALMS',
-    'MTA - PURPLE LINE - PERSHING SQUARE',
-    'MTA - BLUE LINE - SAN PEDRO',
-    'MTA - PURPLE LINE - WESTLAKE/MACARTHUR PARK',
-    'MTA - SILVER LINE - DOWNTOWN STREET STOPS',
-    'MTA - ORANGE LINE - WOODMAN', 'BASKETBALL COURTS',
-    'MTA - GOLD LINE - HERITAGE SQ', 'SURPLUS SURVIVAL STORE',
-    'MTA - ORANGE LINE - WARNER CTR', 'MTA - SILVER LINE - SLAUSON',
-    'MTA - PURPLE LINE - WILSHIRE/VERMONT',
-    'MTA - PURPLE LINE - 7TH AND METRO CENTER',
-    'MTA - SILVER LINE - MANCHESTER', 'MTA - ORANGE LINE - TAMPA',
-    'MTA - ORANGE LINE - PIERCE COLLEGE',
-    'MTA - SILVER LINE - PACIFIC COAST HWY',
-    'MTA - PURPLE LINE - WILSHIRE/NORMANDIE',
-    'MTA - GOLD LINE - LINCOLN/CYPRESS',
-    'MTA - SILVER LINE - HARBOR FWY', 'MUSCLE BEACH',
-    'MTA - BLUE LINE - GRAND/LATTC',
-    'MTA - GOLD LINE - SOUTHWEST MUSEUM',
-    'MTA - SILVER LINE - ROSECRANS', 'MTA - ORANGE LINE - SHERMAN WAY',
-    'MTA - SILVER LINE - CAL STATE LA',
-    'HARBOR FRWY STATION (NOT LINE SPECIFIC)',
-    'MTA - SILVER LINE - 37TH ST/USC', 'MTA - ORANGE LINE - DE SOTO',
-    'HANDBALL COURTS', 'MTA - ORANGE LINE - ROSCOE',
-    'MTA - SILVER LINE - SAN PEDRO STREET STOPS',
-    'MTA - ORANGE LINE - NORDHOFF'];
-    
-    d3.select('#js-search')
-        .selectAll('option')
-        .data(data)
-        .enter()
-        .append('option')
-        .text(function(d) {return d});
-    </script>
+
 </body>
 
 </html>
