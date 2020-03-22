@@ -36,7 +36,7 @@ def OutputData(filename):
 
 
 @app.route("/", methods=['GET', 'POST'])
-def home():
+def main():
     if request.method == 'GET':
         return(flask.render_template('prediction.html'))
     if request.method == 'POST':
