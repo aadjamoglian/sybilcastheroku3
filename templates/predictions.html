@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <title>Home - Crime Trends</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
+
+    <!-- Underscore for groupby -->
+    <script type="text/javascript" src= 
+        "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
+    </script>
+    
+    <!-- FOR SEARCHABLE DROPDOWN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- END OF FOR SEARCHABLE DROPDOWN -->
+
+    <style>
+        .select2-container .select2-selection--single{
+        height:34px !important;
+        width:100%
+    }
+    .select2-container--default .select2-selection--single{
+        border: 1px solid #ccc !important; 
+        border-radius: 0px !important; 
+    }
+    </style>
+</head>
+
+<!-- OPTIONAL FEATURE: Button to assist user back to the top of the page. -->
+<body>
+    <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
+
+<!-- START SECTION: NAVIGATION BAR-->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#goto-home">SYBILCAST</a>Data Powered Prophecy<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="https://sybilcastheroku3.herokuapp.com/home">Home</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">Story</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Analysis</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="">About Us</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- END SECTION: NAVIGATION BAR -->
+
+
+<!-- START SECTION: HOME  -->
+<section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507); height: 400px" id="goto-home">
+        <div class="text">
+            
+            <h1 class="textshadow" style="font-size: 90px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
+            <h5 class="textshadow" style="color: rgba(255, 255, 255, 0.904);">Coded_Predictive_Crime_Trends</h4>
+        </div>
+</section>
+
+
+
+<section class="clean-block clean-info dark"  id="goto-story"></section>
+<!-- END SECTION: HOME -->
+
+<!-- START SECTION: STORY -->
+<br>
+<div>
+    
+    
+</div>
+<!-- END SECTION: STORY -->
+
+<!-- START SECTION: EXAMPLE PEOPLE -->
+    <br>
+    <div>
+
+        <!-- Year Select to be fed into app.js to initialize plotly functions -->
+        <section style="padding-bottom:10px;"class="clean-block clean-info light">
+
+            <div class="container">
+                <div class="block-heading">
+                    <h1 class="text-info">PREDICTION</h1 class="text-info">
+                    <h2 class="text-info">Seeing is believing. We'll show the predictions.</h2>
+                    <!-- <h2 class="text-info">Select a year.</h2> -->
+                    <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select> -->
+                    <br>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="clean-block clean-info dark">
+            <div style='padding-top:30px' class='container'>
+                <!-- Enter your age -->
+        <form action="{{ url_for('main') }}" method="POST" class="col-md-12 col-lg-12 col-sm-12" style='padding-top:20px'>
+            <div class="form-group">
+                <label for="age"><h4>Enter your age : </h4></label>
+                <input name="vict_age" type="text" class="form-control" id="age">
+
+                <br>
+                <!-- Select your sex -->
+                <label><h4>Select your sex : </h4></label>
+                    <select name = "vict_sex" id='victim_sex' style='width:100%' class="form-control select2">
+                        <!-- <option>Select</option> -->
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>X (Unknown)</option>
+                    </select>
+
+                <br>
+                <br>
+                <!-- Select your descent -->
+                <label><h4>Select your descent : </h4></label>
+                    <select name = 'vict_desc' id = "vict_desc" name='vict_desc' style='width:100%' class="form-control select2">
+                        <!-- <option>Select</option> -->
+                        <option>W - White</option>
+                        <option>B - Black</option>
+                        <option>C - Chinese</option>
+                        <option>H - Hispanic/Latin/Mexican</option>
+                        <option>K - Korean</option>
+                        <option>I - American Indian/Alaskan Native</option>
+                        <option>J - Japanese</option>
+                        <option>F - Filipino</option>
+                        <option>P - Pacific Islander</option>
+                        <option>V - Vietnamese</option>
+                        <option>U - Hawaiian</option>
+                        <option>G - Guamanian</option>
+                        <option>D - Cambodian</option>
+                        <option>S - Samoan</option>
+                        <option>Z - Asian Indian</option>
+                        <option>L - Laotian</option>
+                        <option>A - Other Asian</option>
+                        <option>O - Other</option>
+                        <option>X - Unknown</option>
+                    </select>
+
+                    <br>
+                    <br>
+
+                    <!-- Select your premise description -->
+                    <label><h4>Select the description of your current location : </h4></label>
+                    <select name='prem_desc' style='width:100%' class="form-control select2" id='js-search'></select>
+
+                    <br>
+                    <br>
+
+                    <!-- Enter Latitude -->
+                    <label for="lat"><h4>Enter your latitude : </h4></label>
+                    <input name="vict_lat" type="text" class="form-control" id="lat">
+
+                    <br>
+                    
+                    <!-- Enter Longitude -->
+                    <label for="lon"><h4>Enter your longitude : </h4></label>
+                    <input name="vict_lon" type="text" class="form-control" id="lon">
+
+                   
+                    <br>
+
+                    <!-- Select Area Name -->
+                    <label><h4>Select your area name : </h4></label>
+                    <select name='areaName' id="vict_areaName" style='width:100%' class="form-control select2">
+                        <!-- <option>Select</option> -->
+                        <option>Newton</option>
+                        <option>Hollywood</option>
+                        <option>Central</option>
+                        <option>Southwest</option>
+                        <option>Rampart</option>
+                        <option>Olympic</option>
+                        <option>Northeast</option>
+                        <option>77th Street</option>
+                        <option>Hollenbeck</option>
+                        <option>Harbor</option>
+                        <option>Pacific</option>
+                        <option>Southeast</option>
+                        <option>Wilshire</option>
+                        <option>West LA</option>
+                        <option>Van Nuys</option>
+                        <option>West Valley</option>
+                        <option>N Hollywood</option>
+                        <option>Mission</option>
+                        <option>Topanga</option>
+                        <option>Devonshire</option>
+                        <option>Foothill</option>
+                    </select>
+
+                    <br>
+                    <br>
+
+                    <!-- Select day or night -->
+                    <label><h4>Select day or night : </h4></label>
+                    <select name='day' id="day" style='width:100%' class="form-control select2">
+                        <!-- Use select at top since it wont submit -->
+                        <!-- <option>Select</option> -->
+                        <option>Day</option>
+                        <option>Night</option>
+                    </select>
+
+                    <br>
+                    <br>
+
+                    <!-- Select season -->
+                    <label><h4>Select season : </h4></label>
+                    <select name='season' id="season" style='width:100%' class="form-control select2">
+           
+                        <option>Fall</option>
+                        <option>Winter</option>
+                        <option>Spring</option>
+                        <option>Summer</option>
+                    </select>
+                    <br>
+                    <br>
+
+                   <input class="btn btn-primary btn-lg" type="submit" value="GET PREDICTION">
+
+
+            </div> <!-- Ends div form-group -->
+        </form>
+        <script>
+            $('.select2').select2();
+        </script>
+
+    <div id='container'>
+        <div class="result" style='margin-top:20px'> <!-- align="center" -->
+            {% if result %}
+                {% for variable, value in original_input.items() %}
+                    <b>{{ variable }}</b> : <i>{{ value }}</i>
+                {% endfor %}
+                <br>
+                <br>
+                <br>
+                <h2 class='text-info'><strong>Prediction : {{ main_predict }}</strong></h2>
+                <br>
+                <h3 class = 'text-info'>Based on your information, you are most likely to be a victim of a <strong>{{ main_predict }}</strong> Crime!</h3>
+                <br>
+                <h3 class='text-info'>Here is a breakdown of the probability of you being a victim of these crimes:</h3>
+                <table border ='1px' style="width:100%">
+                    <tr>
+                        <th style='padding:8px; font-size:14px'>Crime</th>
+                        <th style='padding:8px;font-size:14px'>Probability</th>
+                    </tr>
+                    {% for key, value in result.items() %}
+                       <tr>
+                            <td style='padding:8px'> {{ key }} </td>
+                            <td style='padding:8px'> {{ value }}% </td>
+                       </tr>
+                    {% endfor %}
+                    </table>
+                <!-- <p style="font-size:50px">{{ result }}</p> -->
+            {% endif %}
+        </div>
+    </div> <!-- Ends div id=container for prediction part-->
+
+
+
+    </div>
+
+
+            <div class="container">
+                <hr style='padding-top:50px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+                <hr style='padding-top:1px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+
+
+                <!-- LEGEND - Show accepted parameters -->
+                <!-- <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <h4>Please use the following:</h4>
+                        <p><strong>SEX</strong> : M - Male, F - Female, X - Unknown/Other</p>
+                        <p><strong>DESCENT</strong> : H - Hispanic/Latin/Mexican, W - White, B - Black, A - Other Asian, O - Other, K - Korean, X - Unknown, I - American Indian/Alaskan Native, J - Japanese, F - Filipino, C - Chinese, P - Pacific Islander, V - Vietnamese, U - Hawaiian, G - Guamanian, D - Cambodian,  S - Samoan, Z - Asian Indian, L - Laotian</p>
+                        <p><strong>AREA NAME</strong> : Newton, Hollywood, Central, Southwest, Rampart, Olympic, Northeast, 77th Street, Hollenbeck, Harbor, Pacific, Southeast, Wilshire, West LA, Van Nuys, West Valley, N Hollywood, Mission, Topanga, Devonshire,Foothill</p>
+                    </div>
+                </div> -->
+                <!-- <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'> -->
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <h1 class="text-info" style='text-align:center'>Examples</h1>
+                        <!-- USER INPUT -->
+                        <h1 class="text-info">Debra</h1>
+                        <p>Enter Age : <i>24</i></p>
+                        <p>Enter Sex : <i>F</i></p>
+                        <p>Enter Descent : <i>W</i></p>
+                        <p>Enter Description of Current Location : <i>Street</i></p>
+                        <p>Enter Latitude : <i>34.0928</i></p>
+                        <p>Enter Longitude : <i>-118.3287</i></p>
+                        <p>Enter Current Area Name : <i>Hollywood</i></p>
+                        <p>Enter Season : <i>Summer</i></p>
+                        <p>Enter Day or Night : <i>Day</i></p>
+                        <br>
+                        <h4>Prediction : Vehicle-Related Crime</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Vehicle-Related</strong> Crime!</p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        
+                        <!-- TABLE WITH PREDICTIONS -->
+                        <div id='container'>
+                        <table border ='1px' style="width:100%">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VEHICLE-RELATED</td>
+                                <td style='padding:8px'>51.02%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>13.84%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>8.66%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>SEXUAL-RELATED</td>
+                                <td style='padding:8px'>6.95%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>6.75%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div>
+
+            <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        
+                        <!-- USER INPUT -->
+                        <h1 class="text-info">Michael</h1>
+                        <p>Enter Age : <i>37</i></p>
+                        <p>Enter Sex : <i>M</i></p>
+                        <p>Enter Descent : <i>H</i></p>
+                        <p>Enter Description of Current Location : <i>Library</i></p>
+                        <p>Enter Latitude : <i>34.1838</i></p>
+                        <p>Enter Longitude : <i>-118.4463</i></p>
+                        <p>Enter Current Area Name : <i>Van Nuys</i></p>
+                        <p>Enter Season : <i>Fall</i></p>
+                        <p>Enter Day or Night : <i>Night</i></p>
+                        <br>
+                        <h4>Prediction : Theft</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Theft!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        
+                        <!-- TABLE WITH PREDICTIONS -->
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>40.01%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>18.76%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>16.41%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>TRESPASSING</td>
+                                <td style='padding:8px'>7.53%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>3.46%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- USER INPUT -->
+                        <h1 class="text-info">Sally</h1>
+                        <p>Enter Age : <i>45</i></p>
+                        <p>Enter Sex : <i>F</i></p>
+                        <p>Enter Descent : <i>B</i></p>
+                        <p>Enter Description of Current Location : <i>Bus Stop</i></p>
+                        <p>Enter Latitude : <i>34.0108</i></p>
+                        <p>Enter Longitude : <i>-118.3025</i></p>
+                        <p>Enter Current Area Name : <i>Southwest</i></p>
+                        <p>Enter Season : <i>Spring</i></p>
+                        <p>Enter Day or Night : <i>Day</i></p>
+                        <br>
+                        <h4>Prediction : Theft</h4>
+                        <p>Based on your information, you are most likely to be a victim of a <strong>Theft!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>38.02%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>29.59%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>20.40%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>TRESPASSING</td>
+                                <td style='padding:8px'>5.32%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>3.67%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- USER INPUT -->
+                        <h1 class="text-info">Bernard</h1>
+                        <p>Enter Age : <i>19</i></p>
+                        <p>Enter Sex : <i>M</i></p>
+                        <p>Enter Descent : <i>O</i></p>
+                        <p>Enter Description of Current Location : <i>BAR/COCKTAIL/NIGHTCLUB</i></p>
+                        <p>Enter Latitude : <i>33.970140</i></p>
+                        <p>Enter Longitude : <i>-118.291210</i></p>
+                        <p>Enter Current Area Name : <i>Southeast</i></p>
+                        <p>Enter Season : <i>Winter</i></p>
+                        <p>Enter Day or Night : <i>Night</i></p>
+                        <br>
+                        <h4>Prediction : Assault/Battery</h4>
+                        <p>Based on your information, you are most likely to be a victim of an <strong>Assault/Battery!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        
+                        <!-- TABLE WITH PREDICTIONS -->
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>50.93%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>24.31%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ROBBERY</td>
+                                <td style='padding:8px'>7.67%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>BURGLARY</td>
+                                <td style='padding:8px'>6.88%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>3.96%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+
+                <div class = "row justify-content-center">
+                    <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
+                        <!-- USER INPUT -->
+                        <h1 class="text-info">Eva</h1>
+                        <p>Enter Age : <i>50</i></p>
+                        <p>Enter Sex : <i>F</i></p>
+                        <p>Enter Descent : <i>A</i></p>
+                        <p>Enter Description of Current Location : <i>BEACH</i></p>
+                        <p>Enter Latitude : <i>33.977645</i></p>
+                        <p>Enter Longitude : <i>-118.466162</i></p>
+                        <p>Enter Current Area Name : <i>Pacific</i></p>
+                        <p>Enter Season : <i>Summer</i></p>
+                        <p>Enter Day or Night : <i>Day</i></p>
+                        <br>
+                        <h4>Prediction : Theft</h4>
+                        <p>Based on your information, you are most likely to be a victim of an <strong>Theft!</strong></p>
+                        <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
+                        
+                        <!-- TABLE WITH PREDICTIONS -->
+                        <div id='container'>
+                        <table border ='1px' style="width:100%;">
+                            <tr>
+                                <th style='padding:8px'>Crime</th>
+                                <th style='padding:8px'>Probability</th>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THEFT</td>
+                                <td style='padding:8px'>58.21%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ASSAULT/BATTERY</td>
+                                <td style='padding:8px'>25.25%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>THREATS/DISBURBANCES</td>
+                                <td style='padding:8px'>4.01%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>ROBBERY</td>
+                                <td style='padding:8px'>3.18%</td>
+                            </tr>
+                            <tr>
+                                <td style='padding:8px'>VANDALISM</td>
+                                <td style='padding:8px'>2.75%</td>
+                            </tr>
+                        </table>
+                        </div> <!--Ends div id=container-->
+                    </div>
+                </div> <!--Ends div row justify content center-->
+
+            </div>
+
+        </section>
+        <section class="clean-block clean-info dark"   id="goto-aboutus"></section>
+    </div>  
+<!-- END SECTION: EXAMPLE PEOPLE-->
+
+
+
+<!-- START SECTION: ABOUT US -->
+    
+    <section class="clean-block about-us">
+        <div class="container">
+
+            <div class="block-heading">
+                <h2 class="text-info">About Us</h2>
+                <p>Four passionate coders that combined their knowledge and skills to conceptualize and design SYBILCAST.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_mi.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Morgan Ivey</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_aa.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_dt.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">DeWitt Tsai</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_ha.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">Hakob Antonyan</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+<!-- END SECTION: ABOUT US -->
+ 
+
+<!-- START SECTION: FOOTER -->
+    <footer class="page-footer dark">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 offset-md-4 mx-auto">
+                    <h5>Want to contribute?</h5>
+                    <ul>
+                        <li class="text-left"><a href="https://github.com/dweidash/project-02-sybilcast">Join the Github!</a></li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--END SECTION: FOOTER-->
+
+    
+<!-- DEPENDENCIES -->
+    <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- <script src="./static/js/app.js"></script> -->
+
+    <!-- <script type="text/javascript" src="static/js/config.js"></script>
+    <script type="text/javascript" src="static/js/just-crime.js"></script> -->
+    <!-- <script type="text/javascript" src="static/js/heatmap.js"></script> -->
+    <!-- <script type="text/javascript" src="static/js/leaflet-heat.js"></script> -->
+    <script>
+        var data = ['SINGLE FAMILY DWELLING', 'STREET', 'OTHER PREMISE', 'PARKING LOT',
+    'SIDEWALK', 'MULTI-UNIT DWELLING (APARTMENT, DUPLEX, ETC)',
+    'RESTAURANT/FAST FOOD', 'BAR/COCKTAIL/NIGHTCLUB', 'HOTEL',
+    'OTHER BUSINESS', 'OTHER STORE',
+    'GOVERNMENT FACILITY (FEDERAL,STATE, COUNTY & CITY)',
+    'VEHICLE, PASSENGER/TRUCK',
+    'MUNICIPAL BUS LINE INCLUDES LADOT/DASH', 'PAWN SHOP',
+    'OTHER RESIDENCE', 'JEWELRY STORE', 'SPECIALTY SCHOOL/OTHER',
+    'CHURCH/CHAPEL (CHANGED 03-03 FROM CHURCH/TEMPLE)', 'ALLEY',
+    'OFFICE BUILDING/OFFICE', 'CONSTRUCTION SITE',
+    'PARKING UNDERGROUND/BUILDING', 'HOSPITAL', 'DRIVEWAY', 'BUS STOP',
+    'NIGHT CLUB (OPEN EVENINGS ONLY)', 'DRUG STORE', 'LIQUOR STORE',
+    'DEPARTMENT STORE', 'MARKET',
+    'TRAIN DEPOT/TERMINAL, OTHER THAN MTA', 'PUBLIC RESTROOM/OUTSIDE*',
+    'LIBRARY', 'SPORTS ARENA', 'ELEVATOR', 'CLOTHING STORE',
+    'HIGH SCHOOL', 'BUS DEPOT/TERMINAL, OTHER THAN MTA',
+    'POLICE FACILITY', 'OTHER/OUTSIDE', 'PARK/PLAYGROUND',
+    'GAS STATION', 'FREEWAY', 'THEATRE/MOVIE', 'BEAUTY/BARBER SHOP',
+    'MEDICAL/DENTAL OFFICES',
+    'TRAIN, OTHER THAN MTA (ALSO QUERY 809/810/811)',
+    'SHOPPING MALL (COMMON AREA)', 'AUTOMATED TELLER MACHINE (ATM)',
+    'HEALTH SPA/GYM', 'STAPLES CENTER *', 'MOTEL', 'GARAGE/CARPORT',
+    'CONDOMINIUM/TOWNHOUSE', 'PATIO*',
+    'PUBLIC RESTROOM(INDOORS-INSIDE)', 'WAREHOUSE',
+    'BUS-CHARTER/PRIVATE', 'CONVENTION CENTER', 'FACTORY', 'BANK',
+    'CREDIT UNION', 'PUBLIC STORAGE', 'YARD (RESIDENTIAL/BUSINESS)',
+    'TRADE SCHOOL (MEDICAL-TECHNICAL-BUSINESS)*', 'CLEANER/LAUNDROMAT',
+    'TERMINAL, OTHER THAN MTA', 'AMTRAK TRAIN',
+    'BUS STOP/LAYOVER (ALSO QUERY 124)', 'AUTO SALES LOT', 'MINI-MART',
+    'VACANT LOT', 'SWAP MEET', 'STAIRWELL*',
+    'TRANSPORTATION FACILITY (AIRPORT)', 'ELEMENTARY SCHOOL',
+    'MTA BUS', 'MANUFACTURING COMPANY', 'BEAUTY SUPPLY STORE',
+    'PORCH, RESIDENTIAL', 'BAR/SPORTS BAR (OPEN DAY & NIGHT)',
+    'STORAGE SHED', 'FINANCE COMPANY',
+    'COLLEGE/JUNIOR COLLEGE/UNIVERSITY', 'TRUCK, COMMERICAL',
+    'ENTERTAINMENT/COMEDY CLUB (OTHER)', 'TAXI', 'PAY PHONE',
+    'NURSING/CONVALESCENT/RETIREMENT HOME', 'HIGH-RISE BUILDING',
+    'REDLINE ENTRANCE/EXIT', 'SKATEBOARD FACILITY/SKATEBOARD PARK*',
+    'CHECK CASHING*', 'JUNIOR HIGH SCHOOL',
+    'FOSTER HOME BOYS OR GIRLS*', 'LAUNDROMAT',
+    'ARCADE,GAME ROOM/VIDEO GAMES (EXAMPLE CHUCKIE CHEESE)*',
+    'VIDEO RENTAL STORE', 'ABANDONED BUILDING ABANDONED HOUSE',
+    'POOL-PUBLIC/OUTDOOR OR INDOOR*',
+    'PHARMACY INSIDE STORE OR SUPERMARKET*', 'GROUP HOME',
+    'HARDWARE/BUILDING SUPPLY', 'FRAT HOUSE/SORORITY/DORMITORY',
+    'AUTO REPAIR SHOP', 'REDLINE SUBWAY PLATFORM',
+    'MEDICAL MARIJUANA FACILITIES/BUSINESSES', 'NAIL SALON',
+    'TV/RADIO/APPLIANCE', 'PRIVATE SCHOOL/PRESCHOOL',
+    'PROJECT/TENEMENT/PUBLIC HOUSING', 'POST OFFICE',
+    'PEDESTRIAN OVERCROSSING', 'DAY CARE/ADULTS*',
+    'GUN/SPORTING GOODS', 'BUS, SCHOOL, CHURCH',
+    "SEX ORIENTED/BOOK STORE/STRIP CLUB/GENTLEMAN'S CLUB",
+    'MEMBERSHIP STORE (COSTCO,SAMS CLUB)*', 'TATTOO PARLOR*',
+    'TOW YARD*', 'COLISEUM', 'AUTO SUPPLY STORE*',
+    'SLIPS/DOCK/MARINA/BOAT', 'OTHER PLACE OF WORSHIP',
+    'REDLINE SUBWAY RAIL CAR (INSIDE TRAIN)',
+    'RETIRED (DUPLICATE) DO NOT USE THIS CODE', 'UNDERPASS/BRIDGE*',
+    'Unknown', 'VISION CARE FACILITY*',
+    "MOBILE HOME/TRAILERS/CONSTRUCTION TRAILERS/RV'S/MOTORHOME",
+    'MTA PROPERTY OR PARKING LOT',
+    'RECORD-CD MUSIC/COMPUTER GAME STORE', 'DRIVE THRU*', 'BALCONY*',
+    'BEACH', 'DAY CARE/CHILDREN*', 'SYNAGOGUE/TEMPLE', 'GOLF COURSE*',
+    'FIRE STATION',
+    'DELIVERY SERVICE (FED EX, UPS, COURIERS,COURIER SERVICE)*',
+    'CEMETARY*', 'MASSAGE PARLOR',
+    'BLUE LINE (ABOVE GROUND SURFACE TRAIN)', 'OIL REFINERY',
+    'CELL PHONE STORE', 'ABORTION CLINIC/ABORTION FACILITY*',
+    'MAIL BOX', 'RIVER BED*',
+    'OPTICAL OFFICE INSIDE STORE OR SUPERMARKET*', 'BOWLING ALLEY*',
+    'SPORTS VENUE, OTHER', 'TOOL SHED*', 'AIRCRAFT', 'DODGER STADIUM',
+    'AMUSEMENT PARK*', 'GARMENT MANUFACTURER',
+    'BANKING INSIDE MARKET-STORE *', 'MASS GATHERING LOCATION',
+    'MOSQUE*', 'GREYHOUND OR INTERSTATE BUS', 'METROLINK TRAIN',
+    'HORSE RACING/SANTA ANITA PARK*', 'SAVINGS & LOAN', 'TOBACCO SHOP',
+    'CHEMICAL STORAGE/MANUFACTURING PLANT', 'EQUIPMENT RENTAL',
+    'DRIVE THRU BANKING (WINDOW)*',
+    'TELECOMMUNICATION FACILITY/LOCATION', 'TRAIN TRACKS',
+    'REDLINE SUBWAY TUNNEL', 'TUNNEL', 'CAR WASH', 'WEBSITE',
+    'OTHER RR TRAIN (UNION PAC, SANTE FE ETC', 'CYBERSPACE',
+    'PET STORE', 'RECYCLING CENTER',
+    'DISCOUNT STORE (99 CENT,DOLLAR,ETC.',
+    "DIY CENTER (LOWE'S,HOME DEPOT,OSH,CONTRACTORS WAREHOUSE)",
+    'NURSERY/FLOWER SHOP', 'COMPUTER SERVICES/REPAIRS/SALES',
+    'ORANGE LINE PARKING LOT', 'OTHER INTERSTATE, CHARTER BUS',
+    'SKATING RINK*', 'ABATEMENT LOCATION', 'DAM/RESERVOIR',
+    'ENERGY PLANT/FACILITY', 'TRASH CAN/TRASH DUMPSTER',
+    'TRAM/STREETCAR(BOXLIKE WAG ON RAILS)*', 'HOSPICE',
+    'CULTURAL SIGNIFICANCE/MONUMENT', 'WATER FACILITY', 'ESCALATOR*',
+    'MISSIONS/SHELTERS', 'CATERING/ICE CREAM TRUCK',
+    'REDLINE (SUBWAY TRAIN)', 'METHADONE CLINIC',
+    'DETENTION/JAIL FACILITY', 'VALET',
+    'GREEN LINE (I-105 FWY LEVEL TRAIN)',
+    "COFFEE SHOP (STARBUCKS, COFFEE BEAN, PEET'S, ETC.)",
+    'HOCKEY RINK/ICE HOCKEY', 'REDLINE SUBWAY MEZZANINE',
+    'APARTMENT/CONDO COMMON LAUNDRY ROOM',
+    'AUTO DEALERSHIP (CHEVY, FORD, BMW, MERCEDES, ETC.)', 'MORTUARY',
+    'ELECTRONICS STORE (IE:RADIO SHACK, ETC.)', 'MUSEUM',
+    'FURNITURE STORE', "SINGLE RESIDENCE OCCUPANCY (SRO'S) LOCATIONS",
+    'VETERINARIAN/ANIMAL HOSPITAL', 'TACTICAL SIGNIFICANCE',
+    'BOOK STORE', 'MTA - GREEN LINE - AVIATION/LAX',
+    'BANK DROP BOX/MONEY DROP-OUTSIDE OF BANK*',
+    'MTA - ORANGE LINE - WOODLEY',
+    'MTA - RED LINE - 7TH AND METRO CENTER',
+    'TRANSITIONAL HOUSING/HALFWAY HOUSE',
+    "VEHICLE STORAGE LOT (CARS, TRUCKS, RV'S, BOATS, TRAILERS, ETC.)",
+    'NUCLEAR FACILITY', 'STUDIO (FILM/PHOTOGRAPHIC/MUSIC)',
+    'DEPT OF DEFENSE FACILITY', 'TRANSIENT ENCAMPMENT',
+    'MTA - RED LINE - UNION STATION', 'THE GROVE',
+    'THE BEVERLY CENTER', 'THE BEVERLY CONNECTION',
+    'MTA - RED LINE - HOLLYWOOD/VINE',
+    'MTA - RED LINE - WESTLAKE/MACARTHUR PARK',
+    'MTA - GREEN LINE - HARBOR FWY', 'SEWAGE FACILITY/PIPE',
+    'MTA - RED LINE - PERSHING SQUARE',
+    'MTA - RED LINE - VERMONT/BEVERLY',
+    'LA UNION STATION (NOT LINE SPECIFIC)',
+    'MTA - RED LINE - VERMONT/SANTA MONICA',
+    'MTA - RED LINE - NORTH HOLLYWOOD', 'MTA - BLUE LINE - WASHINGTON',
+    'MTA - EXPO LINE - PICO', 'MTA - EXPO LINE - EXPO/WESTERN',
+    '7TH AND METRO CENTER (NOT LINE SPECIFIC)',
+    'MTA - BLUE LINE - 7TH AND METRO CENTER',
+    'MTA - RED LINE - VERMONT/SUNSET',
+    'MTA - SILVER LINE - HARBOR GATEWAY TRANSIT CTR',
+    'MTA - EXPO LINE - EXPO/CRENSHAW',
+    'MTA - EXPO LINE - EXPO/VERMONT',
+    'MTA - GOLD LINE - LITTLE TOKYO/ARTS DISTRICT',
+    'MTA - EXPO LINE - FARMDALE', 'MTA - EXPO LINE - EXPO/BUNDY',
+    'MTA - EXPO LINE - 7TH AND METRO CENTER',
+    'MTA - PURPLE LINE - CIVIC CENTER/GRAND PARK',
+    'MTA - GOLD LINE - HIGHLAND PARK',
+    'MTA - PURPLE LINE - WILSHIRE/WESTERN',
+    'MTA - PURPLE LINE - UNION STATION',
+    'MTA - GOLD LINE - UNION STATION',
+    'MTA - RED LINE - HOLLYWOOD/HIGHLAND',
+    'MTA - RED LINE - UNIVERSAL CITY/STUDIO CITY',
+    'MTA - SILVER LINE - UNION STATION',
+    'MTA - GOLD LINE - MARIACHI PLAZA',
+    'MTA - EXPO LINE - EXPO PARK/USC',
+    'MTA - RED LINE - WILSHIRE/VERMONT',
+    'MTA - EXPO LINE - EXPO/LA BREA',
+    'MTA - RED LINE - CIVIC CENTER/GRAND PARK',
+    'MTA - BLUE LINE - PICO', 'MTA - GOLD LINE - CHINATOWN',
+    'MTA - ORANGE LINE - CHATSWORTH',
+    'MTA - EXPO LINE - EXPO/SEPULVEDA',
+    'MTA - EXPO LINE - JEFFERSON/USC', 'MTA - GOLD LINE - SOTO',
+    'MTA - EXPO LINE - LATTC/ORTHO INSTITUTE',
+    'MTA - ORANGE LINE - NORTH HOLLYWOOD',
+    'MTA - ORANGE LINE - SEPULVEDA', 'MTA - GREEN LINE - AVALON',
+    'MTA - BLUE LINE - 103RD/WATTS TOWERS',
+    'MTA - ORANGE LINE - VAN NUYS', 'MTA - GOLD LINE - INDIANA',
+    'MTA - EXPO LINE - WESTWOOD/RANCHO PARK',
+    'MTA - EXPO LINE - LA CIENEGA/JEFFERSON',
+    'MTA - RED LINE - HOLLYWOOD/WESTERN', 'MTA - ORANGE LINE - RESEDA',
+    'MTA - ORANGE LINE - LAUREL CANYON', 'SHORT-TERM VACATION RENTAL',
+    'MTA - ORANGE LINE - VALLEY COLLEGE', 'MTA - ORANGE LINE - CANOGA',
+    'MTA - ORANGE LINE - BALBOA', 'MTA - GOLD LINE - PICO/ALISO',
+    'MTA - BLUE LINE - VERNON', 'MTA - EXPO LINE - PALMS',
+    'MTA - PURPLE LINE - PERSHING SQUARE',
+    'MTA - BLUE LINE - SAN PEDRO',
+    'MTA - PURPLE LINE - WESTLAKE/MACARTHUR PARK',
+    'MTA - SILVER LINE - DOWNTOWN STREET STOPS',
+    'MTA - ORANGE LINE - WOODMAN', 'BASKETBALL COURTS',
+    'MTA - GOLD LINE - HERITAGE SQ', 'SURPLUS SURVIVAL STORE',
+    'MTA - ORANGE LINE - WARNER CTR', 'MTA - SILVER LINE - SLAUSON',
+    'MTA - PURPLE LINE - WILSHIRE/VERMONT',
+    'MTA - PURPLE LINE - 7TH AND METRO CENTER',
+    'MTA - SILVER LINE - MANCHESTER', 'MTA - ORANGE LINE - TAMPA',
+    'MTA - ORANGE LINE - PIERCE COLLEGE',
+    'MTA - SILVER LINE - PACIFIC COAST HWY',
+    'MTA - PURPLE LINE - WILSHIRE/NORMANDIE',
+    'MTA - GOLD LINE - LINCOLN/CYPRESS',
+    'MTA - SILVER LINE - HARBOR FWY', 'MUSCLE BEACH',
+    'MTA - BLUE LINE - GRAND/LATTC',
+    'MTA - GOLD LINE - SOUTHWEST MUSEUM',
+    'MTA - SILVER LINE - ROSECRANS', 'MTA - ORANGE LINE - SHERMAN WAY',
+    'MTA - SILVER LINE - CAL STATE LA',
+    'HARBOR FRWY STATION (NOT LINE SPECIFIC)',
+    'MTA - SILVER LINE - 37TH ST/USC', 'MTA - ORANGE LINE - DE SOTO',
+    'HANDBALL COURTS', 'MTA - ORANGE LINE - ROSCOE',
+    'MTA - SILVER LINE - SAN PEDRO STREET STOPS',
+    'MTA - ORANGE LINE - NORDHOFF'];
+    
+    d3.select('#js-search')
+        .selectAll('option')
+        .data(data)
+        .enter()
+        .append('option')
+        .text(function(d) {return d});
+    </script>
+</body>
+
+</html>
