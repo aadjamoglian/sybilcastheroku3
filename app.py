@@ -167,7 +167,7 @@ def data():
 
 @app.route("/predictions", methods=['GET', 'POST'])
 def render_predictions() -> "html":
-    return render_template("predictions.html")
+    return render_template("prediction.html")
 
 @app.route("/home", methods=['GET', 'POST'])
 def render_home():
