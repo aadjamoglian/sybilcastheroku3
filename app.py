@@ -13,7 +13,6 @@ import os.path
 from flask import send_from_directory
 from predict import predict_person
 import joblib
-import requests
 
 # app = Flask(__name__, )
 app = Flask(__name__)
