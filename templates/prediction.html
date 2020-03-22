@@ -38,6 +38,15 @@
         border: 1px solid #ccc !important; 
         border-radius: 0px !important; 
     }
+    @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+    #predict-table {
+        font-size: 13px;
+    }
+    #main-text {
+        font-size:10vw;
+    }
+    
+    }
     </style>
 </head>
 
@@ -66,7 +75,7 @@
 <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;assets/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507); height: 400px" id="goto-home">
         <div class="text">
             
-            <h1 class="textshadow" style="font-size: 90px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
+            <h1 class="textshadow" style="font-size: 100px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
             <h5 class="textshadow" style="color: rgba(255, 255, 255, 0.904);">Coded_Predictive_Crime_Trends</h4>
         </div>
 </section>
@@ -248,7 +257,7 @@
                 <h3 class = 'text-info'>Based on your information, you are most likely to be a victim of a <strong>{{ main_predict }}</strong> Crime!</h3>
                 <br>
                 <h3 class='text-info'>Here is a breakdown of the probability of you being a victim of these crimes:</h3>
-                <table border ='1px' style="width:100%">
+                <table border ='1px' style="width:100%" id='predict-table'>
                     <tr>
                         <th style='padding:8px; font-size:14px'>Crime</th>
                         <th style='padding:8px;font-size:14px'>Probability</th>
@@ -305,8 +314,8 @@
                         <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
                         
                         <!-- TABLE WITH PREDICTIONS -->
-                        <div id='container'>
-                        <table border ='1px' style="width:100%">
+                        <div class='container-fluid'>
+                        <table border ='1px' style="width:100%" id='predict-table'>
                             <tr>
                                 <th style='padding:8px'>Crime</th>
                                 <th style='padding:8px'>Probability</th>
@@ -358,8 +367,8 @@
                         <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
                         
                         <!-- TABLE WITH PREDICTIONS -->
-                        <div id='container'>
-                        <table border ='1px' style="width:100%;">
+                        <div class='container-fluid'>
+                        <table border ='1px' style="width:100%;" id='predict-table'>
                             <tr>
                                 <th style='padding:8px'>Crime</th>
                                 <th style='padding:8px'>Probability</th>
@@ -408,8 +417,8 @@
                         <h4>Prediction : Theft</h4>
                         <p>Based on your information, you are most likely to be a victim of a <strong>Theft!</strong></p>
                         <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
-                        <div id='container'>
-                        <table border ='1px' style="width:100%;">
+                        <div class='container-fluid'>
+                        <table border ='1px' style="width:100%;" id='predict-table'>
                             <tr>
                                 <th style='padding:8px'>Crime</th>
                                 <th style='padding:8px'>Probability</th>
@@ -460,8 +469,8 @@
                         <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
                         
                         <!-- TABLE WITH PREDICTIONS -->
-                        <div id='container'>
-                        <table border ='1px' style="width:100%;">
+                        <div class='container-fluid'>
+                        <table border ='1px' style="width:100%;" id='predict-table'>
                             <tr>
                                 <th style='padding:8px'>Crime</th>
                                 <th style='padding:8px'>Probability</th>
@@ -512,8 +521,8 @@
                         <p>Here is a breakdown of the probability of you being a victim of these crimes:</p>
                         
                         <!-- TABLE WITH PREDICTIONS -->
-                        <div id='container'>
-                        <table border ='1px' style="width:100%;">
+                        <div class='container-fluid'>
+                        <table border ='1px' style="width:100%;" id='predict-table'>
                             <tr>
                                 <th style='padding:8px'>Crime</th>
                                 <th style='padding:8px'>Probability</th>
