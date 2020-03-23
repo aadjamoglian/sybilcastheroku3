@@ -14,6 +14,8 @@ from flask import send_from_directory
 from predict import predict_person
 import joblib
 from coords import get_coords
+import keyz
+
 
 # app = Flask(__name__, )
 app = Flask(__name__)
