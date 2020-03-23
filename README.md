@@ -4,6 +4,7 @@
 
 # SYBILCAST - Coded Predictive Crime Trends
 
+Check out the deployed project [here](https://sybilcastheroku3.herokuapp.com/home)
 ## Background
 **GOAL**: Uniting data and research to forecast danger in Earth's greatest cities.
 
@@ -17,7 +18,7 @@ As time goes on, you cycle through the seasons and have a strange feeling that m
 
 **FYI** : Recent studies have shown that temperature and weather can significantly affect crime rates.
 
-## Crime-Temperature Analysis
+## [Crime-Temperature Analysis](https://sybilcastheroku3.herokuapp.com/home)
 
 ### Steps
 
@@ -51,7 +52,7 @@ Select a year from 2010-2019 and visualize the data [HERE](https://sybilcasthero
 
 Select the Predict button to be directed to the [predictions page](https://sybilcastheroku3.herokuapp.com/predictions)
 
-## Crime Predictions
+## [Crime Predictions](https://sybilcastheroku3.herokuapp.com/predictions)
 
 ### Creating the [Model](SGDmodel_ML) - Steps
 
@@ -113,3 +114,13 @@ Select the Predict button to be directed to the [predictions page](https://sybil
 Enter your information and recieve the probabilities of the most likely crimes to occur to you
 
 See examples of people's information and what crimes are predicted to occur to them
+
+## [Data Analysis and Visualizations](https://sybilcastheroku3.herokuapp.com/tableau)
+#### HTML Navigation - VISUALIZATIONS
+Explore Tableau visualizations that:
+- Compares crime count for each season
+- Explores the relationship between season and premise description
+- Explores the relationship between Area Name and day verses night
+- Compares victim descent by season and crime count
+- Compares different crimes based on victim's age
+- Compares different crimes based on victim's sex
