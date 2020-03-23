@@ -13,6 +13,7 @@ import os.path
 from flask import send_from_directory
 from predict import predict_person
 import joblib
+from coords import get_coords
 
 # app = Flask(__name__, )
 app = Flask(__name__)
@@ -50,13 +51,21 @@ def main():
         vict_desc = str(request.form['vict_desc'])[0]
 		
         vict_premise = str(request.form['prem_desc'])
-        vict_lat = float(request.form['vict_lat'])
-        vict_lon = float(request.form['vict_lon'])
+        #vict_lat = float(request.form['vict_lat'])
+        #vict_lon = float(request.form['vict_lon'])
         vict_area = str(request.form['areaName'])
         
         # Day and Season MUST be lowercase
         vict_day = str(request.form['day']).lower()
         vict_season = str(request.form['season']).lower()
+	
+	vict_streetNum = int(request.form['street-num'])
+        vict_streetName = str(request.form['street-name'])
+        vict_city = str(request.form['city'])
+        vict_state = 'CA'
+        vict_lat, vict_lon = get_coords(vict_streetNum, vict_streetName, vict_city, vict_state)
+        vict_lat = float(vict_lat)
+        vict_lon = float(vict_lon)
        
 
         input_variables = pd.DataFrame([[vict_age, vict_sex, vict_desc, vict_lat, vict_lon, vict_area, 
