@@ -1,7 +1,7 @@
 def get_coords(street_num, street_name, city, state):
     import requests
     import json
-    from api_keys import gkey
+    from config import gkey
     
     base_url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
     #'{street_num}+{street_name}+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY'
