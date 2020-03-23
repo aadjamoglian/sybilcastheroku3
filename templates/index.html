@@ -20,6 +20,28 @@
     <script type="text/javascript" src= 
         "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
     </script> 
+    <style>
+        @media screen and (min-device-width : 375px) and (max-device-width : 667px) {
+            #high_temp {
+                margin-right:25px;
+            }
+            #low_temp {
+                margin-right:25px;
+            }
+            #horibar {
+                margin-right:25px;
+            }
+            #area-graph {
+                margin-right:40px;
+                margin-left:0px;
+                margin-top:30px;
+
+            }
+            #main-text {
+                font-size:10vw;
+            }
+        }
+    </style>
 </head>
 
 <!-- OPTIONAL FEATURE: Button to assist user back to the top of the page. -->
@@ -49,7 +71,7 @@
 <section class="clean-block clean-hero box-shadow" style="background-image: url(&quot;static/img/crime_index.jpg&quot;);color: rgba(116, 9, 255, 0.507);height: 500px;" id="goto-home">
     <div class="text">
         
-        <h1 class="textshadow" style="font-size: 100px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
+        <h1 id='main-text' class="textshadow" style="font-size: 100px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
         <h5 class="textshadow" style="color: rgba(255, 255, 255, 0.904);">Coded_Predictive_Crime_Trends</h4>
     </div>
 </section>
@@ -172,7 +194,7 @@
                 <!-- MAP - Map with Markers -->
                 <div class = "row">
                     <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
-                        <div id = "map" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div>
+                        <div id = "map" style="height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div>
                         <p>Marker Map</p>
                     </div>
                 </div>
@@ -180,7 +202,7 @@
                 <!-- MAP - Map with Heatmap -->
                 <div class = "row">
                     <div style='margin-top:30px' class="col-md-12 col-lg-12 col-sm-12">
-                        <div id = "heatmap" style="width: 1000px; height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div>
+                        <div id = "heatmap" style="height: 600px" class="col-md-12 col-lg-12 col-sm-12"></div>
                         <p>Heat Map</p>
                     </div>
                 </div>
