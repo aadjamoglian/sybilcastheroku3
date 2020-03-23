@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <title>Data Visualizations- Crime Trends</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>   
+
+    <!-- Underscore for groupby -->
+    <script type="text/javascript" src= 
+        "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"> 
+    </script>
+    
+    <!-- FOR SEARCHABLE DROPDOWN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- END OF FOR SEARCHABLE DROPDOWN -->
+
+    <style>
+        .select2-container .select2-selection--single{
+        height:34px !important;
+        width:100%
+    }
+    .select2-container--default .select2-selection--single{
+        border: 1px solid #ccc !important; 
+        border-radius: 0px !important; 
+    }
+    </style>
+</head>
+
+<!-- OPTIONAL FEATURE: Button to assist user back to the top of the page. -->
+<body>
+    <button onclick="topFunction()" id="homebutton" title="Go to top">Top</button>
+
+<!-- START SECTION: NAVIGATION BAR-->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#goto-home">SYBILCAST</a>Data Powered Prophecy<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="https://sybilcastheroku3.herokuapp.com/home">Home</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">Story</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Analysis</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="">About Us</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- END SECTION: NAVIGATION BAR -->
+
+
+<!-- START SECTION: HOME  -->
+
+<section class="crime-img clean-block clean-hero box-shadow" style="background-image: url(assets/img/crime_index.jpg);color: rgba(116, 9, 255, 0.507); height: 500px" id="goto-home">
+        <div class="text">
+            
+            <h1 id='sybilcast-text' class="textshadow" style="font-size: 90px; color: rgba(255, 255, 255, 0.904);">SYBILCAST</h1>
+            <h5 class="textshadow" style="color: rgba(255, 255, 255, 0.904);">Coded_Predictive_Crime_Trends</h4>
+        </div>
+</section>
+
+<section style="padding-bottom:10px;"class="clean-block clean-info light">
+
+    <div class="container">
+        <div class="block-heading">
+            <h1 class="text-info">DATA VISUALIZATIONS</h1 class="text-info">
+            <h2 class="text-info">Explore the graphs below</h2>
+            <!-- <h2 class="text-info">Select a year.</h2> -->
+            <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select> -->
+            <br>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- <section class="clean-block clean-info dark"  id="goto-story"></section> -->
+<!-- END SECTION: HOME -->
+
+<!-- START SECTION: STORY -->
+<br>
+
+<!-- END SECTION: STORY -->
+
+
+
+            <div class="container">
+                <!-- <hr style='padding-top:50px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+                <hr style='padding-top:1px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'> -->
+
+                <div class='container'>
+
+                    <div class='tableauPlaceholder' id='viz1584929490594' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;CrimeinLAduringeachseason&#47;1_rss.png' style='border: none' /></a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' /> 
+                                <param name='site_root' value='' />
+                                <param name='name' value='Crime_LosAngeles&#47;CrimeinLAduringeachseason' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;CrimeinLAduringeachseason&#47;1.png' /> 
+                                <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                            </object>
+                    </div>                
+                        <script type='text/javascript'>                    
+                            var divElement = document.getElementById('viz1584929490594'); 
+                            var vizElement = divElement.getElementsByTagName('object')[0];
+                            if ( divElement.offsetWidth > 800 ) { 
+                                vizElement.style.width='1000px';
+                                // vizElement.style.width='800px';
+
+                                vizElement.style.height='827px';
+                                } 
+                            else if ( divElement.offsetWidth > 500 ) { 
+                                vizElement.style.width='1000px';
+                                // vizElement.style.width='800px';
+                                vizElement.style.height='827px';} 
+                            else { 
+                                vizElement.style.width='100%';
+                                vizElement.style.height='877px';} 
+                            var scriptElement = document.createElement('script');
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                        </script>
+                </div> <!--Ends div class='container'-->
+                
+                <br>
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+                <br>
+
+                <div class='container'>
+                    <div class='tableauPlaceholder' id='viz1584929912344' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;Crimebypremisareaduringday-time&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Crime_LosAngeles&#47;Crimebypremisareaduringday-time' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;Crimebypremisareaduringday-time&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1584929912344');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+
+                <br>
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+                <br>
+
+                <div class='container'>
+                    <div class='tableauPlaceholder' id='viz1584930028326' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;Crimerelatingwithageethnicityday-time&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Crime_LosAngeles&#47;Crimerelatingwithageethnicityday-time' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;Crimerelatingwithageethnicityday-time&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1584930028326');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <br>
+                <hr style='padding-top:10px;border:none;border-bottom: 1px solid rgb(23, 66, 107);opacity:.5'>
+                <br>
+
+                <div class='container'>
+                    <div class='tableauPlaceholder' id='viz1584930048639' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;AgeandGender&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Crime_LosAngeles&#47;AgeandGender' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cr&#47;Crime_LosAngeles&#47;AgeandGender&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1584930048639');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>    
+
+            </div> <!-- END MAIN DIV CLASS="CONTAINER"-->
+
+        </section>
+        <section class="clean-block clean-info dark"   id="goto-aboutus"></section>
+    </div>  
+<!-- END SECTION: EXAMPLE PEOPLE-->
+
+
+
+<!-- START SECTION: ABOUT US -->
+    
+    <section class="clean-block about-us">
+        <div class="container">
+
+            <div class="block-heading">
+                <h2 class="text-info">About Us</h2>
+                <p>Four passionate coders that combined their knowledge and skills to conceptualize and design SYBILCAST.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_mi.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Morgan Ivey</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_aa.jpg">
+                        <div class="card-body info">
+                            <h4 class="card-title">Arthur&nbsp;Adjamoglian</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_dt.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">DeWitt Tsai</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar_ha.jpg">
+
+                        <div class="card-body info">
+                            <h4 class="card-title">Hakob Antonyan</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+<!-- END SECTION: ABOUT US -->
+ 
+
+<!-- START SECTION: FOOTER -->
+    <footer class="page-footer dark">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 offset-md-4 mx-auto">
+                    <h5>Want to contribute?</h5>
+                    <ul>
+                        <li class="text-left"><a href="https://github.com/dweidash/project-02-sybilcast">Join the Github!</a></li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--END SECTION: FOOTER-->
+
+    
+<!-- DEPENDENCIES -->
+    <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</body>
+</html>
