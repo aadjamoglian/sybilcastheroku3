@@ -59,7 +59,7 @@ def main():
         vict_day = str(request.form['day']).lower()
         vict_season = str(request.form['season']).lower()
 	
-	vict_streetNum = int(request.form['street-num'])
+	    vict_streetNum = int(request.form['street-num'])
         vict_streetName = str(request.form['street-name'])
         vict_city = str(request.form['city'])
         vict_state = 'CA'
