@@ -184,5 +184,10 @@ def render_home():
 
     return render_template("index.html")
 
+@app.route("/tableau", methods=['GET', 'POST'])
+def render_tableau():
+
+    return render_template("tableau.html")
+
 if __name__ == "__main__":
     app.run(debug=True) 
