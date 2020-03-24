@@ -33,7 +33,6 @@ var Year_2015 = new L.LayerGroup([]);
 var Year_2016 = new L.LayerGroup([]);
 var Year_2017 = new L.LayerGroup([]);
 var Year_2018 = new L.LayerGroup([]);
-var Year_2019 = new L.LayerGroup([]);
 
 streetMap.addTo(myMap)
 
