@@ -15,8 +15,8 @@ var layers = {
   Year_2015: new L.LayerGroup(),
   Year_2016: new L.LayerGroup(),
   Year_2017: new L.LayerGroup(),
-  Year_2018: new L.LayerGroup(),
-  Year_2019: new L.LayerGroup()
+  Year_2018: new L.LayerGroup()
+  // Year_2019: new L.LayerGroup()
 };
 
 var myMap = L.map("map", {
@@ -46,7 +46,7 @@ var overlays = {
   "2016": layers.Year_2016,
   "2017": layers.Year_2017,
   "2018": layers.Year_2018,
-  "2019": layers.Year_2019,
+  "2019": Year_2019,
 };
 
 L.control.layers(null, overlays).addTo(myMap);
