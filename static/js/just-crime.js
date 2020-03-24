@@ -6,18 +6,18 @@ streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
   accessToken: API_KEY
 });
 
-var layers = {
-  Year_2010: new L.LayerGroup(),
-  Year_2011: new L.LayerGroup(),
-  Year_2012: new L.LayerGroup(),
-  Year_2013: new L.LayerGroup(),
-  Year_2014: new L.LayerGroup(),
-  Year_2015: new L.LayerGroup(),
-  Year_2016: new L.LayerGroup(),
-  Year_2017: new L.LayerGroup(),
-  Year_2018: new L.LayerGroup(),
-  Year_2019: new L.LayerGroup()
-};
+// var layers = {
+//   Year_2010: new L.LayerGroup(),
+//   Year_2011: new L.LayerGroup(),
+//   Year_2012: new L.LayerGroup(),
+//   Year_2013: new L.LayerGroup(),
+//   Year_2014: new L.LayerGroup(),
+//   Year_2015: new L.LayerGroup(),
+//   Year_2016: new L.LayerGroup(),
+//   Year_2017: new L.LayerGroup(),
+//   Year_2018: new L.LayerGroup(),
+//   Year_2019: new L.LayerGroup()
+// };
 
 var myMap = L.map("map", {
   center: [34.039350, -118.261100],
