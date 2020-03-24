@@ -1,25 +1,3 @@
-function getDate(currentYear) {
-  d3.csv("OutputData/Max_Temps_2010_2019.csv").then((data) => {
-      
-    // Format YYYY-MM-DD
-    // var currentHotDate = data.filter(x => x.Year === currentYear)[0].Date;
-    // console.log(currentHotDate)
-    var hotDates = data.map(x => x.Date)
-    console.log(hotDates.map(x=>x))
-    console.log(hotDates.filter(x => x.includes("2010"))[0])
-    d3.csv("OutputData/Min_Temps_2010_2019.csv").then((data) => {
-        // var currentColdDate = data.filter(x => x.Year === currentYear)[0].Date;
-        // console.log(currentColdDate)
-
-        // return currentHotDate, currentColdDate
-        var coldDates = data.map(x => x.Date)
-        // createMap(currentHotDate,currentColdDate)
-        createMap(hotDates,coldDates)
-    });
-  });
-}
-// var test, test1  = getDate("2010")
-// console.log(test)
 
 streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>",
@@ -61,10 +39,6 @@ var myMap = L.map("map", {
 
 streetMap.addTo(myMap)
 
-var osm = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(myMap);
-
-// L.Control.geocoder().addTo(myMap);
-
 var overlays = {
   "2010": layers.Year_2010,
   "2011": layers.Year_2011, 
@@ -89,132 +63,77 @@ var blackIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
-var redIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-
-var blueIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-
 datastore = []
-function createMap(hotDates,coldDates) {
-// Call d3.json() with the JSON file data.json (original repo: server (http://127.0.0.1:5000/data) from app.py)
-d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
+
+d3.json("http://127.0.0.1:5000/data").then(
   function(d){
     d.map(d => {
       datastore.push(d)
 
-      // var newMarker = L.marker([d.lat, d.lon], {
-      //   icon: blackIcon
-      // });
-      var redMarker = L.marker([d.lat, d.lon], {
-        icon: redIcon
-      });
-      var blueMarker = L.marker([d.lat, d.lon], {
-        icon: blueIcon
+      var newMarker = L.marker([d.lat, d.lon], {
+        icon: blackIcon
       });
 
-      if (d.date_occ === hotDates.filter(x => x.includes("2010"))[0]) {
-        // var hotDate = getDate("2010")
-        // var hotDate = hotDates.filter(x => x.includes("2010"))[0]
-        console.log(hotDate)
-        console.log(hotDates)
-        console.log(hotDates.filter(x=> x.includes("2010")))
+      if (d.date_occ.includes("2010")) {
         console.log("Year 2010")
-        redMarker.addTo(layers.Year_2010);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2010"))[0]) {
-        blueMarker.addTo(layers.Year_2010);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-
+        newMarker.addTo(layers.Year_2010);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
       }
 
-      else if (d.date_occ === hotDates.filter(x => x.includes("2011"))[0]) {
-        redMarker.addTo(layers.Year_2011);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2011"))[0]) {
-        blueMarker.addTo(layers.Year_2011);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2012"))[0]) {
-        redMarker.addTo(layers.Year_2012);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2012"))[0]) {
-        blueMarker.addTo(layers.Year_2012);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2013"))[0]) {
-        redMarker.addTo(layers.Year_2013);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2013"))[0]) {
-        blueMarker.addTo(layers.Year_2013);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2014"))[0]) {
-        redMarker.addTo(layers.Year_2014);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2014"))[0]) {
-        blueMarker.addTo(layers.Year_2014);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2015"))[0]) {
-        redMarker.addTo(layers.Year_2015);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2015"))[0]) {
-        blueMarker.addTo(layers.Year_2015);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2016"))[0]) {
-        redMarker.addTo(layers.Year_2016);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2016"))[0]) {
-        blueMarker.addTo(layers.Year_2016);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2017"))[0]) {
-        redMarker.addTo(layers.Year_2017);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2017"))[0]) {
-        blueMarker.addTo(layers.Year_2017);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2018"))[0]) {
-        redMarker.addTo(layers.Year_2018);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2018"))[0]) {
-        blueMarker.addTo(layers.Year_2018);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === hotDates.filter(x => x.includes("2019"))[0]) {
-        redMarker.addTo(layers.Year_2019);
-        redMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
-      }
-      else if (d.date_occ === coldDates.filter(x => x.includes("2019"))[0]) {
-        blueMarker.addTo(layers.Year_2019);
-        blueMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      else if (d.date_occ.includes("2011")) {
+        console.log("Year 2011")
+        newMarker.addTo(layers.Year_2011);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
       }
 
-     
+      else if (d.date_occ.includes("2012")) {
+        console.log("Year 2012")
+        newMarker.addTo(layers.Year_2012);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2013")) {
+        console.log("Year 2013")
+        newMarker.addTo(layers.Year_2013);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2014")) {
+        console.log("Year 2014")
+        newMarker.addTo(layers.Year_2014);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2015")) {
+        console.log("Year 2015")
+        newMarker.addTo(layers.Year_2015);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2016")) {
+        console.log("Year 2016")
+        newMarker.addTo(layers.Year_2016);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2017")) {
+        console.log("Year 2017")
+        newMarker.addTo(layers.Year_2017);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2018")) {
+        console.log("Year 2018")
+        newMarker.addTo(layers.Year_2018);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
+
+      else if (d.date_occ.includes("2019")) {
+        console.log("Year 2019")
+        newMarker.addTo(layers.Year_2019);
+        newMarker.bindPopup("<b>" + d.crm_cd_desc + "</b>" + "</br>" + d.time_occ.substring(0,2) + ":" + d.time_occ.substring(2,4) + "</br>" + d.date_occ)
+      }
 
     })
 
 })
-}; //Ends createMap() function
