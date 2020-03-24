@@ -22,18 +22,20 @@ var layers = {
 var myMap = L.map("map", {
   center: [34.039350, -118.261100],
   zoom: 12,
+  layers: [
+    layers.Year_2010,
+    layers.Year_2011,
+    layers.Year_2012,
+    layers.Year_2013,
+    layers.Year_2014,
+    layers.Year_2015,
+    layers.Year_2016,
+    layers.Year_2017,
+    layers.Year_2018,
+    layers.Year_2019,
+  ]
 });
 
-var Year_2010 = new L.LayerGroup([]);
-var Year_2011 = new L.LayerGroup([]);
-var Year_2012 = new L.LayerGroup([]);
-var Year_2013 = new L.LayerGroup([]);
-var Year_2014 = new L.LayerGroup([]);
-var Year_2015 = new L.LayerGroup([]);
-var Year_2016 = new L.LayerGroup([]);
-var Year_2017 = new L.LayerGroup([]);
-var Year_2018 = new L.LayerGroup([]);
-var Year_2019 = new L.LayerGroup([]);
 
 streetMap.addTo(myMap)
 
@@ -63,7 +65,7 @@ var blackIcon = new L.Icon({
 
 datastore = []
 
-d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
+d3.json("http://127.0.0.1:5000/data").then(
   function(d){
     d.map(d => {
       datastore.push(d)
