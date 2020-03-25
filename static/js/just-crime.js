@@ -50,7 +50,7 @@ var overlays = {
   "2019": layers.Year_2019,
 };
 
-L.control.layers(null, overlays, collapsed=true).addTo(myMap);
+L.control.layers(null, overlays,{collapsed:false}).addTo(myMap);
 
 var blackIcon = new L.Icon({
   iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
