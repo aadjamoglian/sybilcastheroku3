@@ -127,7 +127,7 @@ d3.json("https://sybilcastheroku3.herokuapp.com/data").then(
 
       };
 
-      L.control.layers(overlayMaps,{collapsed:false}).addTo(myMap);
+      L.control.layers(overlayMaps).addTo(myMap);
       
 
 
